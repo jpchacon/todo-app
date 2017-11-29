@@ -16,4 +16,8 @@
     <string name="full_name">Nombre Completo</string>
     <string name="signup">Registrarme</string>
     <string name="already_have_account">Ya tengo una cuenta</string>
+    <string name="name_tarea_cardview">Tarea 1</string>
+    <string name="fecha_finaliza_tarea">27/11/2017</string>
+    <string name="finaliza_tarea_item">Finaliza el:</string>
+    <string name="recover_password"><u>Recuperar</u></string>
 </resources>
