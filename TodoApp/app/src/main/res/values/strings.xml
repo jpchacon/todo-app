@@ -20,4 +20,7 @@
     <string name="fecha_finaliza_tarea">27/11/2017</string>
     <string name="finaliza_tarea_item">Finaliza el:</string>
     <string name="recover_password"><u>Recuperar</u></string>
+    <string name="is_required">Es requerido</string>
+
+
 </resources>
