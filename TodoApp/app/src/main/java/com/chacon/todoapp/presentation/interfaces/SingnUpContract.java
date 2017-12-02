@@ -8,6 +8,7 @@ public interface SingnUpContract {
     interface View{
         void goToLoginFragment();
         void goToMainActivity();
+        void showMessageError(Exception error);
     }
     interface UserActionsListener{
         void onSignUp(String fullName,String email, String password);

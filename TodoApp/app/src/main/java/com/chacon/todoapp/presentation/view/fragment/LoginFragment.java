@@ -1,7 +1,9 @@
 package com.chacon.todoapp.presentation.view.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,11 +18,12 @@ import com.chacon.todoapp.helpers.Utilitis;
 import com.chacon.todoapp.presentation.interfaces.LoginContract;
 import com.chacon.todoapp.presentation.presenter.LoginPresenter;
 import com.chacon.todoapp.presentation.view.activity.AuthActivity;
+import com.chacon.todoapp.presentation.view.activity.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment implements LoginContract.View{
+public class LoginFragment extends Fragment implements LoginContract.View, View.OnClickListener{
 
     private LoginContract.UserActionsListener mActionListener;
 
@@ -55,38 +58,48 @@ public class LoginFragment extends Fragment implements LoginContract.View{
         btnStart = view.findViewById(R.id.btnStart);
         btnNotHaveAccount = view.findViewById(R.id.btnNotHaveAccount);
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onLogin();
-            }
-        });
-
-        btnNotHaveAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-
-
-
-
-
+        btnStart.setOnClickListener(this);
+        btnNotHaveAccount.setOnClickListener(this);
+        tvForgotPassword.setOnClickListener(this);
 
         return view;
     }
 
     @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnStart:
+                onLogin();
+                break;
+            case R.id.btnNotHaveAccount:
+                goToSignUpFragment();
+                break;
+            case R.id.tvForgotPassword:
+                goToRecoveryPassword();
+                break;
+        }
+    }
+
+    @Override
     public void goToSignUpFragment() {
         AuthActivity authActivity = (AuthActivity)getActivity();
-        authActivity.replaceFragment(SignUpFragment.getInstance(),false);
+        authActivity.replaceFragment(SignUpFragment.getInstance(),true);
     }
 
     @Override
     public void goToMainActivity() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
+    public void goToRecoveryPassword(){
+        RecoveryPasswordFragment recoveryPasswordFragment = RecoveryPasswordFragment.getInstance();
+        recoveryPasswordFragment.show(getFragmentManager(),null);
+    }
+
+    @Override
+    public void showMenssageError(Exception error) {
+        Snackbar.make(getView(),error.getMessage(),Snackbar.LENGTH_LONG).show();
     }
 
     private void onLogin(){
@@ -123,4 +136,6 @@ public class LoginFragment extends Fragment implements LoginContract.View{
 
         }
     }
+
+
 }

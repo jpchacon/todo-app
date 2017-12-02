@@ -9,8 +9,10 @@ public interface LoginContract {
         void goToSignUpFragment();
 
         void goToMainActivity();
+
+        void showMenssageError(Exception error);
     }
     interface UserActionsListener{
-        void onLogin(String main, String password, boolean remember);
+        void onLogin(String email, String password, boolean remember);
     }
 }

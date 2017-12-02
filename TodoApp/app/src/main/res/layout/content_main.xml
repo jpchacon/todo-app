@@ -8,6 +8,5 @@
     tools:context="com.chacon.todoapp.presentation.view.activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <include layout="@layout/fragment_login"></include>
 
 </android.support.constraint.ConstraintLayout>
