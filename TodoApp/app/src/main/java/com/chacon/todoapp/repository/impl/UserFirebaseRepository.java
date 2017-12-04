@@ -29,8 +29,6 @@ public class UserFirebaseRepository implements UserRepository {
        this.mAuth = FirebaseAuth.getInstance();
         this.mDatabase = FirebaseDatabase.getInstance()
                 .getReference("users");
-
-
     }
 
     @Override
@@ -57,8 +55,6 @@ public class UserFirebaseRepository implements UserRepository {
                         }else {
                             callback.error(task.getException());
                         }
-
-                        // ...
                     }
                 });
     }
@@ -95,4 +91,6 @@ public class UserFirebaseRepository implements UserRepository {
                 });
 
     }
+
+
 }

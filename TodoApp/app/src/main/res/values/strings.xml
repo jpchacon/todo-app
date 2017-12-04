@@ -23,6 +23,12 @@
     <string name="is_required">Es requerido</string>
 
 
+    <string name="mensaje_succes_recovery_email">Mensaje enviado correctamente</string>
+    <string name="mensaje_error_recovery_email">Mensaje fallido</string>
+
+
+
+
 
 
 </resources>

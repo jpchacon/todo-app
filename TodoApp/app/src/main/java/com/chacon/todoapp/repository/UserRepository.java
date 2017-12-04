@@ -13,4 +13,7 @@ public interface UserRepository {
 
     void  signUp(User user,  Callback<User> callback);
 
+
+
+
 }
