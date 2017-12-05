@@ -26,7 +26,7 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
     private RecoveryPasswordContract.presenter presenter;
 
     private TextInputLayout emailRecoveryEdit;
-    private TextView recoveryPassTextView;
+    private TextView recoveryPassTextView, msjAlerta;
     private ProgressBar progressBarRecovery;
 
     public RecoveryPasswordFragment() {
@@ -48,6 +48,8 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
         emailRecoveryEdit = view.findViewById(R.id.emailRecoveryEdit);
         recoveryPassTextView = view.findViewById(R.id.recoveryPassTextView);
         progressBarRecovery = view.findViewById(R.id.progressBarRecovery);
+        msjAlerta = view.findViewById(R.id.msjAlerta);
+
         recoveryPassTextView.setOnClickListener(this);
 
 
@@ -77,12 +79,15 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
 
     @Override
     public void showSuccessfull() {
+        msjAlerta.setText("Correo enviado");
+        emailRecoveryEdit.getEditText().setText("");
 
     }
 
     @Override
     public void showFailed() {
-
+        msjAlerta.setText("El correo no pudo ser enviado");
+        emailRecoveryEdit.getEditText().setText("");
     }
 
 
