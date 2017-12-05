@@ -27,22 +27,27 @@ public class RecoveryPasswordInteractorImpl implements RecoveryPasswordContract.
     @Override
     public void sendMail(final OnRecoveryPasswordFinishedListener listener, final String email) {
 
+        if(email.length() > 0){
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mAuth.sendPasswordResetEmail(email)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    listener.onSucces();
-                                }else {
-                                    listener.onError();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mAuth.sendPasswordResetEmail(email)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        listener.onSucces();
+                                    }else {
+                                        listener.onError();
+                                    }
                                 }
-                            }
-                        });
-            }
-        },3000);
+                            });
+                }
+            },3000);
+        }else {
+            listener.onError();
+        }
+
     }
 }
