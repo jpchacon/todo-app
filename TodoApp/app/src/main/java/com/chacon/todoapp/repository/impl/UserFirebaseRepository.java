@@ -1,5 +1,6 @@
 package com.chacon.todoapp.repository.impl;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -90,6 +91,21 @@ public class UserFirebaseRepository implements UserRepository {
                     }
                 });
 
+    }
+
+    @Override
+    public void recoveryPassword(String email, final Callback<Boolean> callback) {
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            callback.success(true);
+                        }else {
+                            callback.error(task.getException());
+                        }
+                    }
+                });
     }
 
 

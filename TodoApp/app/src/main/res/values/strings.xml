@@ -8,7 +8,7 @@
     <string name="start_session">Iniciar Seción</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
-    <string name="forgot_password">Olvide mi contraseña</string>
+    <string name="forgot_password"><u>Olvide mi contraseña</u></string>
     <string name="remember_user">Recordar mi usuario en este dispositivo</string>
     <string name="start">Iniciar secion</string>
     <string name="not_have_account">No tengo una cuenta</string>
@@ -23,12 +23,8 @@
     <string name="is_required">Es requerido</string>
 
 
-    <string name="mensaje_succes_recovery_email">Mensaje enviado correctamente</string>
-    <string name="mensaje_error_recovery_email">Mensaje fallido</string>
-
-
-
-
+    <string name="mensaje_succes_recovery_email">Email enviado correctamente</string>
+    <string name="recover_password_accept"><u>Aceptar</u></string>
 
 
 </resources>

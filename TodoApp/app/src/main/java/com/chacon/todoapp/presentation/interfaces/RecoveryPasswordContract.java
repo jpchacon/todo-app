@@ -1,7 +1,5 @@
 package com.chacon.todoapp.presentation.interfaces;
 
-import com.chacon.todoapp.helpers.OnRecoveryPasswordFinishedListener;
-
 /**
  * Created by Juanpa on 4/12/2017.
  */
@@ -13,14 +11,11 @@ public interface RecoveryPasswordContract {
         void hideProgressbar();
 
         void showSuccessfull();
-        void showFailed();
+        void showFailed(Exception error);
     }
 
     interface presenter{
         void attempSendMail(String mail);
     }
 
-    interface interactor{
-        void sendMail(OnRecoveryPasswordFinishedListener listener, String email);
-    }
 }

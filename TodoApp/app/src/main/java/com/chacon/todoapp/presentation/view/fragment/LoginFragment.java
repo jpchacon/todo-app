@@ -19,6 +19,7 @@ import com.chacon.todoapp.presentation.interfaces.LoginContract;
 import com.chacon.todoapp.presentation.presenter.LoginPresenter;
 import com.chacon.todoapp.presentation.view.activity.AuthActivity;
 import com.chacon.todoapp.presentation.view.activity.MainActivity;
+import com.chacon.todoapp.presentation.view.dialog.RecoveryPasswordFragment;
 
 /**
  * A simple {@link Fragment} subclass.
