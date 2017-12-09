@@ -25,6 +25,8 @@
 
     <string name="mensaje_succes_recovery_email">Email enviado correctamente</string>
     <string name="recover_password_accept"><u>Aceptar</u></string>
+    <string name="add_a_photo">Agregar una foto</string>
+    <string name="btn_save_todo">Guardar</string>
 
 
 

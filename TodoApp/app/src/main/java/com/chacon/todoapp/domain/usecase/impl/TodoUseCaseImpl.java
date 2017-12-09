@@ -44,13 +44,47 @@ public class TodoUseCaseImpl implements TodoUseCase {
     }
 
     @Override
-    public void update(Todo todo, Callback<Todo> callback) {
-        //TODO IMPLEMENTAR
+    public void update(final Todo todo, final Callback<Todo> callback) {
+        //TODO Revisar
+        new ThreadExecutor<Todo>(new ThreadExecutor.Task<Todo>() {
+            @Override
+            public Todo execute() throws Exception {
+                Todo todo1 = todo;
+                todoRepository.update(todo1);
+                return null;
+            }
+
+            @Override
+            public void finish(Exception error, Todo result) {
+                if (error != null){
+                    callback.error(error);
+                }else {
+                    callback.success(result);
+                }
+            }
+        }).execute();
     }
 
     @Override
-    public void delete(Todo todo, Callback<Boolean> callback) {
-        //TODO IMPLEMENTAR
+    public void delete(final Todo todo, final Callback<Boolean> callback) {
+        //TODO Revisar
+        new ThreadExecutor<Todo>(new ThreadExecutor.Task<Todo>() {
+            @Override
+            public Todo execute() throws Exception {
+                Todo todo1 = todo;
+                todoRepository.delete(todo);
+                return null;
+            }
+
+            @Override
+            public void finish(Exception error, Todo result) {
+                if (error != null){
+                    callback.error(error);
+                }else {
+                    callback.success(true);
+                }
+            }
+        }).execute();
     }
 
     @Override

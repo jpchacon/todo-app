@@ -7,4 +7,8 @@
     <color name="bacgroud_cardview_todo_item">#53292929</color>
     <color name="success_email">#0b9909</color>
     <color name="error_email">#ff0000</color>
+
+    <color name="btn_color_todo_1">#000000</color>
+    <color name="btn_color_todo_2">#FAA214</color>
+    <color name="btn_color_todo_3">#F50000</color>
 </resources>
