@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TodoRepository {
 
-    void insert(Todo todo);
+    Long insert(Todo todo);
 
     void update(Todo todo);
 

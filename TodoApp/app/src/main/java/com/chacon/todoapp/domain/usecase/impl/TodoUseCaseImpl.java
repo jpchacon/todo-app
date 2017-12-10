@@ -27,8 +27,9 @@ public class TodoUseCaseImpl implements TodoUseCase {
         new ThreadExecutor<Todo>(new ThreadExecutor.Task<Todo>() {
             @Override
             public Todo execute() throws Exception {
-                Todo todo = new Todo(description,finishDate,finished,image,color);
-                todoRepository.insert(todo);
+                Todo todo = new Todo(description, finishDate, finished, image, color);
+                Long id = todoRepository.insert(todo);
+                todo.setId(id.intValue());
                 return todo;
             }
 
@@ -45,13 +46,11 @@ public class TodoUseCaseImpl implements TodoUseCase {
 
     @Override
     public void update(final Todo todo, final Callback<Todo> callback) {
-        //TODO Revisar
         new ThreadExecutor<Todo>(new ThreadExecutor.Task<Todo>() {
             @Override
             public Todo execute() throws Exception {
-                Todo todo1 = todo;
-                todoRepository.update(todo1);
-                return null;
+                todoRepository.update(todo);
+                return todo;
             }
 
             @Override
@@ -67,21 +66,19 @@ public class TodoUseCaseImpl implements TodoUseCase {
 
     @Override
     public void delete(final Todo todo, final Callback<Boolean> callback) {
-        //TODO Revisar
-        new ThreadExecutor<Todo>(new ThreadExecutor.Task<Todo>() {
+        new ThreadExecutor<Boolean>(new ThreadExecutor.Task<Boolean>() {
             @Override
-            public Todo execute() throws Exception {
-                Todo todo1 = todo;
+            public Boolean execute() throws Exception {
                 todoRepository.delete(todo);
-                return null;
+                return true;
             }
 
             @Override
-            public void finish(Exception error, Todo result) {
+            public void finish(Exception error, Boolean result) {
                 if (error != null){
                     callback.error(error);
                 }else {
-                    callback.success(true);
+                    callback.success(result);
                 }
             }
         }).execute();
