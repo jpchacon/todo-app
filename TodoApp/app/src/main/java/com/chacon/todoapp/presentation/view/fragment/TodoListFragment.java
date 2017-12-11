@@ -27,7 +27,7 @@ public class TodoListFragment extends Fragment implements TodoListContract.View{
         // Required empty public constructor
     }
 
-    public TodoListFragment getInstace(){
+    public static TodoListFragment getInstance(){
         return new TodoListFragment();
     }
 
