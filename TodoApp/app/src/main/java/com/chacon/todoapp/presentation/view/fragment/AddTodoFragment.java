@@ -96,6 +96,7 @@ public class AddTodoFragment extends Fragment implements AddTodoContract.View, V
                 color = getResources().getColor(R.color.btn_color_todo_3);
                 break;
             case R.id.btnSaveTodo:
+                onSave();
                 break;
         }
     }
