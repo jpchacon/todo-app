@@ -6,6 +6,7 @@ import com.chacon.todoapp.helpers.Callback;
 import com.chacon.todoapp.helpers.ThreadExecutor;
 import com.chacon.todoapp.repository.TodoRepository;
 import com.chacon.todoapp.repository.impl.TodoLocalRepository;
+import com.chacon.todoapp.repository.impl.TodoRestRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,7 @@ public class TodoUseCaseImpl implements TodoUseCase {
     private TodoRepository todoRepository;
 
     public TodoUseCaseImpl(){
-        this.todoRepository = new TodoLocalRepository();
+        this.todoRepository = new TodoRestRepository();
     }
 
     @Override

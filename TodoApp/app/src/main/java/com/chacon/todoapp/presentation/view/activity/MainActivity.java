@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.chacon.todoapp.R;
+import com.chacon.todoapp.presentation.view.fragment.AddTodoFragment;
+import com.chacon.todoapp.presentation.view.fragment.TodoListFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,8 +34,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                replaceFragment(AddTodoFragment.getInstance(),false);
             }
         });
 
@@ -85,10 +86,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
+        if (id == R.id.mis_tareas) {
+            replaceFragment(TodoListFragment.getInstance(),false);
+        } else if (id == R.id.new_todo) {
+            replaceFragment(AddTodoFragment.getInstance(),false);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
